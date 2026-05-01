@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/M1RVKL/DevOps#readme",
   "dependencies": {
-    "@prisma/client": "^7.8.0",
+    "@prisma/client": "^6.19.3",
+    "express": "^5.2.1",
+    "mysql2": "^3.22.3",
+    "prisma": "^6.19.3",
     "yargs": "^18.0.0"
-  },
-  "devDependencies": {
-    "prisma": "^7.8.0"
   }
 }

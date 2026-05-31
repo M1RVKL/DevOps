@@ -11,4 +11,4 @@ query_cache_size        = 16M
 log_error               = /var/log/mysql/error.log
 expire_logs_days        = 10
 
-bind-address            = {{ ansible_default_ipv4.address }}
+bind-address = 0.0.0.0

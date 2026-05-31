@@ -1,0 +1,38 @@
+---
+- name: Встановлення MariaDB та необхідних пакетів для Ansible модулів
+  apt:
+    name:
+      - mariadb-server
+      - python3-pymysql
+    state: present
+    update_cache: yes
+
+- name: Налаштування файлу конфігурації MariaDB через шаблон
+  template:
+    src: 50-server.cnf.j2
+    dest: /etc/mysql/mariadb.conf.d/50-server.cnf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Перезапуск MariaDB
+
+- name: Запуск та увімкнення сервісу MariaDB в автозавантаження
+  systemd:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Створення бази даних для веб-застосунку
+  mysql_db:
+    name: mywebapp
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock
+
+- name: Створення користувача БД з доступом ТІЛЬКИ з IP-адреси Worker ВМ
+  mysql_user:
+    name: mywebapp_user
+    password: "SuperSecretPassword123"
+    priv: "mywebapp.*:ALL"
+    host: "{{ groups['worker'][0] }}"
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock

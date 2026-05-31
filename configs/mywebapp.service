@@ -7,7 +7,7 @@ After=network.target mariadb.service mywebapp.socket
 [Service]
 WorkingDirectory=/var/www/mywebapp
 ExecStartPre=/usr/bin/bash /var/www/mywebapp/migrate.sh
-Environment=HOME=/home/mywebapp
+Environment="DATABASE_URL=mysql://vlad:qwerty@localhost:3306/inventory_db"
 ExecStart=/usr/bin/node /var/www/mywebapp/index.js --db_url "mysql://vlad:qwerty@localhost:3306/inventory_db"
 
 User=mywebapp

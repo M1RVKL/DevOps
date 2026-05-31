@@ -28,3 +28,11 @@
     owner: ansible
     group: ansible
     mode: '0644'
+
+- name: Дозволити вхід по SSH з паролем (для teacher та operator)
+  lineinfile:
+    path: /etc/ssh/sshd_config.d/50-cloud-init.conf
+    regexp: '^PasswordAuthentication'
+    line: 'PasswordAuthentication yes'
+    state: present
+  notify: Перезапуск SSH

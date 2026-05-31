@@ -58,9 +58,8 @@
   notify: Перезапуск mywebapp
 
 - name: Встановлення NPM залежностей
-  command: npm install
-  args:
-    chdir: /opt/mywebapp
+  npm:
+    path: /opt/mywebapp
 
 - name: Зміна власника файлів на app (після встановлення модулів)
   file:

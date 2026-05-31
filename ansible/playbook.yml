@@ -6,13 +6,23 @@
     - common
 
 - name: Конфігурація сервера бази даних
-  hosts: db 
+  hosts: db
   become: yes
   roles:
     - db
-
   handlers:
     - name: Перезапуск MariaDB
       systemd:
         name: mariadb
+        state: restarted
+
+- name: Конфігурація Worker-ноди (Застосунок та Nginx)
+  hosts: worker
+  become: yes
+  roles:
+    - worker
+  handlers:
+    - name: Перезапуск Nginx
+      systemd:
+        name: nginx
         state: restarted

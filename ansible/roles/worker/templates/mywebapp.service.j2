@@ -1,0 +1,15 @@
+[Unit]
+Description=My Web App (Simple Inventory)
+After=network.target
+
+[Service]
+User=app
+Group=app
+WorkingDirectory=/opt/mywebapp
+EnvironmentFile=/opt/mywebapp/.env
+ExecStartPre=/bin/bash /opt/mywebapp/migrate.sh
+ExecStart=/usr/bin/node /opt/mywebapp/index.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

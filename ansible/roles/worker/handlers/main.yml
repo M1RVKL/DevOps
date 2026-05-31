@@ -1,0 +1,10 @@
+---
+- name: Перезапуск mywebapp
+  systemd:
+    name: mywebapp
+    state: restarted
+
+- name: Перезапуск Nginx
+  systemd:
+    name: nginx
+    state: restarted

@@ -36,6 +36,8 @@ sudo cp -r ./* /var/www/mywebapp/
 
 sudo npm install --production --prefix /var/www/mywebapp
 
+cd /var/www/mywebapp && sudo ./node_modules/.bin/prisma generate
+
 sudo chown -R mywebapp:mywebapp /var/www/mywebapp
 sudo chmod +x /var/www/mywebapp/migrate.sh
 

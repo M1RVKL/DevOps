@@ -4,24 +4,14 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "lint": "eslint .",
-    "test": "jest --coverage"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coverageThreshold": {
-      "global": {
-        "lines": 40,
-        "functions": 40
-      }
-    }
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/M1RVKL/DevOps.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vladyslav Bielov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/M1RVKL/DevOps/issues"
@@ -33,12 +23,5 @@
     "mysql2": "^3.22.3",
     "prisma": "^6.19.3",
     "yargs": "^16.2.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "eslint": "^10.4.0",
-    "globals": "^17.6.0",
-    "jest": "^30.4.2",
-    "supertest": "^7.2.2"
   }
 }

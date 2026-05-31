@@ -1,7 +1,9 @@
 #!/bin/bash
-cd /opt/mywebapp || exit 1
+cd /var/www/mywebapp || exit 1
 
 export HOME=/tmp
+
+export DATABASE_URL="mysql://vlad:qwerty@localhost:3306/inventory_db"
 
 echo "Starting database migration..."
 
